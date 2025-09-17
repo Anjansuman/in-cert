@@ -14,10 +14,10 @@ datasource db {
 }
 
 model Institution {
-    id           String        @id @default(cuid())
-    name         String
+    id           String             @id @default(cuid())
+    name         String             @unique
     certificates Certificate[]
-    verified     Boolean       @default(false)
+    verification VerificationStatus @default(NOT_VERIFIED)
 }
 
 // add a user/candidate model for proving a valid owner of the certificate
@@ -31,4 +31,13 @@ model Certificate {
     issuedAt      DateTime    @default(now())
     description   String
     uri           String
+    nftHash       String
+    jwt           String
+}
+
+enum VerificationStatus {
+    NOT_VERIFIED
+    PENDING
+    VERIFIED
+    FORGED
 }

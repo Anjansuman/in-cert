@@ -18,3 +18,7 @@ export type {
     Institution,
     Certificate,
 } from "@prisma/client";
+
+export {
+    VerificationStatus,
+} from "@prisma/client";
