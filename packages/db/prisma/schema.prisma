@@ -31,8 +31,8 @@ model Certificate {
     issuedAt      DateTime    @default(now())
     description   String
     uri           String
-    nftHash       String
-    jwt           String
+    nftHash       String      @unique
+    jwt           String      @unique
 }
 
 enum VerificationStatus {

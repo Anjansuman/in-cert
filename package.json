@@ -6,7 +6,10 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "get-types": "cp apps/contract/target/types/contract.ts apps/web/src/contract/",
+    "get-idl": "cp apps/contract/target/idl/contract.json apps/web/src/contract/",
+    "get-anchor": "yarn get-types && yarn get-idl"
   },
   "devDependencies": {
     "prettier": "^3.6.0",

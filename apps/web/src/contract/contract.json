@@ -1,0 +1,162 @@
+{
+  "address": "9nF17epkj1esEvgx4JpkviUfn2XbEheBDUsiuqAt6ogc",
+  "metadata": {
+    "name": "contract",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "create_certificate",
+      "discriminator": [
+        238,
+        189,
+        143,
+        29,
+        100,
+        80,
+        70,
+        10
+      ],
+      "accounts": [
+        {
+          "name": "certificate",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  101,
+                  114,
+                  116,
+                  105,
+                  102,
+                  105,
+                  99,
+                  97,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "institution_id"
+              },
+              {
+                "kind": "arg",
+                "path": "candidate_id"
+              },
+              {
+                "kind": "arg",
+                "path": "issued_at"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "institution_id",
+          "type": "string"
+        },
+        {
+          "name": "institution_name",
+          "type": "string"
+        },
+        {
+          "name": "candidate_id",
+          "type": "string"
+        },
+        {
+          "name": "candidate_name",
+          "type": "string"
+        },
+        {
+          "name": "issued_at",
+          "type": "i64"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "uri",
+          "type": {
+            "option": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Certificate",
+      "discriminator": [
+        202,
+        229,
+        222,
+        220,
+        116,
+        20,
+        74,
+        67
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "Certificate",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "institution",
+            "type": "pubkey"
+          },
+          {
+            "name": "institution_id",
+            "type": "string"
+          },
+          {
+            "name": "institution_name",
+            "type": "string"
+          },
+          {
+            "name": "candidate_id",
+            "type": "string"
+          },
+          {
+            "name": "candidate_name",
+            "type": "string"
+          },
+          {
+            "name": "issued_at",
+            "type": "i64"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": {
+              "option": "string"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

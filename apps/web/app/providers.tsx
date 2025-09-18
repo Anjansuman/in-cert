@@ -8,6 +8,7 @@ import {
     SolflareWalletAdapter,
     AlphaWalletAdapter,
 } from '@solana/wallet-adapter-wallets';
+import { ContractProvider } from './contract';
 
 export default function Providers({ children }: { children: ReactNode }) {
     // use mainnet
@@ -25,7 +26,9 @@ export default function Providers({ children }: { children: ReactNode }) {
     return (
         <ConnectionProvider endpoint={endpoint}>
             <WalletProvider wallets={wallets} autoConnect>
-                {children}
+                <ContractProvider>
+                    {children}
+                </ContractProvider>
             </WalletProvider>
         </ConnectionProvider>
     );
