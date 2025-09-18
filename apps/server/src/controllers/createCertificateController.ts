@@ -24,6 +24,7 @@ export default async function createCertificateController(req: Request, res: Res
             institutionId: institutionId,
             candidateId: id,
             issuedAt: issuedAt,
+            nftHash: nftHash,
         };
 
         const token = jwt.sign(jwtPayload, secret);
