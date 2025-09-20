@@ -3,7 +3,6 @@
 import { useContract } from "@/app/contract";
 import createCertificateRoute from "@/src/backend/CreateCertificateRoute";
 import React, { useEffect, useState } from "react";
-import CertificateCard from "./CertificateCard";
 import { useWallet } from "@solana/wallet-adapter-react";
 
 export default function CertificateForm() {
@@ -125,17 +124,6 @@ export default function CertificateForm() {
                     Submit
                 </button>
             </form>
-            <div>
-                {certificates?.map((c, index) => (
-                    <CertificateCard
-                        key={index}
-                        candidateId={c.candidateId}
-                        candidateName={c.candidateName}
-                        issuedAt={c.issuedAt}
-                        description={c.description}
-                    />
-                ))}
-            </div>
         </>
     );
 }

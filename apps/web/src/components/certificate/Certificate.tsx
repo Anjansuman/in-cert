@@ -118,7 +118,7 @@ export default function Certificate() {
                     </p>
 
                     <div className="flex items-center gap-2 mt-2 text-xs">
-                        <span className="truncate max-w-[180px]">{certificateData.nftHash}</span>
+                        <span className="w-fit ">{certificateData.nftHash}</span>
                         <button
                             onClick={() => copyToClipboard(certificateData.nftHash)}
                             className="text-yellow-500 hover:text-yellow-600"
