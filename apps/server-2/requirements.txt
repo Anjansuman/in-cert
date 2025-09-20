@@ -15,4 +15,5 @@ Pillow>=10.0.0
 fastapi>=0.100.0
 uvicorn>=0.23.0
 fitz
+python-multipart
 # python-multipart>=0.0.6# if you later handle file uploads in FastAPI
