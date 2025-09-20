@@ -5,8 +5,8 @@ use crate::state::certificate::Certificate;
 pub fn create_certificate(
     ctx: Context<CreateCertificate>,
     institution_id: String,
-    institution_name: String,
     candidate_id: String,
+    institution_name: String,
     candidate_name: String,
     issued_at: i64,
     description: String,
@@ -28,7 +28,7 @@ pub fn create_certificate(
 }
 
 #[derive(Accounts)]
-#[instruction(institution_id: String, candidate_id: String, issued_at: i64)]
+#[instruction(institution_id: String, candidate_id: String)]
 pub struct CreateCertificate<'info> {
     #[account(
         init,
@@ -36,7 +36,6 @@ pub struct CreateCertificate<'info> {
             b"certificate",
             institution_id.as_bytes(),
             candidate_id.as_bytes(),
-            &issued_at.to_le_bytes(),
         ],
         bump,
         payer = authority,

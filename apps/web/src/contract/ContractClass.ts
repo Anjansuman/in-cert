@@ -45,25 +45,29 @@ export default class ContractClass {
         candidateName: string,
         issuedAt: number,
         description: string,
-        uri?: string,
+        uri?: string | null,
     ): Promise<string | null> {
         try {
 
             if (!this.program) throw new Error('Program not initialized!');
 
-            const [certificatePDA] = this.getCertificatePda(institutionId, candidateId, issuedAt);
+            console.log("InstitutionId bytes:", Buffer.from(institutionId));
+            console.log("CandidateId bytes:", Buffer.from(candidateId));
+            console.log("IssuedAt seconds:", issuedAt);
+
+            const [certificatePDA] = this.getCertificatePda(institutionId, candidateId);
 
             console.log({ certificatePDA });
 
             const res = await this.program.methods
                 .createCertificate(
                     institutionId,
-                    institutionName,
                     candidateId,
+                    institutionName,
                     candidateName,
                     new BN(issuedAt),
                     description,
-                    uri ? uri : ''
+                    uri || null,
                 )
                 .accountsStrict({
                     certificate: certificatePDA,
@@ -96,7 +100,24 @@ export default class ContractClass {
         }
     }
 
-    private getCertificatePda(institutionId: String, candidateId: String, issuedAt: number): [PublicKey, number] {
+    public async getAllCertificate(): Promise<any[]> {
+        try {
+
+            if(!this.program) throw new Error('Program not initialized!');
+
+            const certificates = await this.program.account.certificate.all();
+
+            console.log({ certificates });
+
+            return certificates;
+            
+        } catch (error) {
+            this.handleError(error);
+            return [];
+        }
+    }
+
+    private getCertificatePda(institutionId: String, candidateId: String): [PublicKey, number] {
         if (!this.program) throw new Error('Program not initialized!');
 
         return PublicKey.findProgramAddressSync(
@@ -104,7 +125,6 @@ export default class ContractClass {
                 Buffer.from('certificate'),
                 Buffer.from(institutionId),
                 Buffer.from(candidateId),
-                Buffer.from(issuedAt.toString()),
             ],
             this.program.programId,
         );

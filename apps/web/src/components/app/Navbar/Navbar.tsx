@@ -11,7 +11,7 @@ export default function Navbar() {
     return (
         <div className="fixed top-4 left-1/2 -translate-x-1/2 w-[76rem] bg-black border border-neutral-700 rounded-2xl py-5 px-10 flex justify-between items-center text-neutral-200 shadow-md ">
             <div>
-                Hashed
+                in-cert
             </div>
             <div className="flex px-3 gap-x-3 justify-between items-center ">
                 <VscGithub size={25} className="cursor-pointer " />

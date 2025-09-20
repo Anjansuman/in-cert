@@ -54,10 +54,6 @@ export type Contract = {
               {
                 "kind": "arg",
                 "path": "candidateId"
-              },
-              {
-                "kind": "arg",
-                "path": "issuedAt"
               }
             ]
           }
