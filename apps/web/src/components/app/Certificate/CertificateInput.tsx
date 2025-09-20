@@ -23,7 +23,7 @@ export default function CertificateForm() {
 
         const res = await contract.createCertificate(
             'cmfogpipy0000lph074hfu3xl',
-            'institute_1',
+            'IEM',
             candidateId,
             candidateName,
             issuedAt,
