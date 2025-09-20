@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CREATE_CERTIFICATE_URL } from './route';
+import { API_URL, BACKEND_URL, CREATE_CERTIFICATE_URL } from './route';
 
 export default async function createCertificateRoute(
     institutionId: string,
@@ -7,12 +7,17 @@ export default async function createCertificateRoute(
     candidateName: string,
     issuedAt: number,
     description: string,
+    nftHash: string,
     uri?: string,
 ) {
     try {
+
+        console.log({ BACKEND_URL });
+        console.log({ API_URL });
         
+        console.log("route: ", CREATE_CERTIFICATE_URL);
         const data = await axios.post(
-            CREATE_CERTIFICATE_URL,
+            'http://localhost:8080/api/v1/create-certificate',
             {
                 institutionId,
                 id: candidateId,
@@ -20,6 +25,7 @@ export default async function createCertificateRoute(
                 issuedAt,
                 description,
                 uri,
+                nftHash,
             }
         );
 

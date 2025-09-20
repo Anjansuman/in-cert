@@ -48,10 +48,6 @@
               {
                 "kind": "arg",
                 "path": "candidate_id"
-              },
-              {
-                "kind": "arg",
-                "path": "issued_at"
               }
             ]
           }
