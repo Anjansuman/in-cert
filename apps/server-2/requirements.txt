@@ -1,13 +1,6 @@
-# python-opencv-headless==4.11.0.86  # safer for servers, no GUI deps
-# pytesseract==0.3.13
-# numpy>=1.25.0
-# pdfplumber>=0.11.0
-# Pillow>=10.0.0
-# fastapi>=0.100.0
-# uvicorn>=0.23.0
-# python-multipart>=0.0.6 # if you later handle file uploads in FastAPI
 
-opencv-python-headless==4.11.0.86  # safer for servers, no GUI deps
+
+opencv-python-headless==4.11.0.86  #
 pytesseract==0.3.13
 numpy>=1.25.0
 pdfplumber>=0.11.0
@@ -17,3 +10,5 @@ uvicorn>=0.23.0
 fitz
 python-multipart
 # python-multipart>=0.0.6# if you later handle file uploads in FastAPI
+PyMuPDF>=1.23.0  # for 'fitz' import
+pyzbar
